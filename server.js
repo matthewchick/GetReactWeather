@@ -1,3 +1,9 @@
+
+/*
+ 1. Use reactboilerplate to create reactWeather
+ 2. 
+*/
+
 var express = require('express');
 
 // Create our app
