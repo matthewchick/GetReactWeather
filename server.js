@@ -1,7 +1,10 @@
 
 /*
  1. Use reactboilerplate to create reactWeather
- 2. 
+ 2. Install front-end router => sudo npm install react_router@latest --save
+ 3. Add React Developer Tools in the Chrome
+    https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi/related?hl=en
+ 4. 
 */
 
 var express = require('express');

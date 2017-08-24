@@ -1,11 +1,13 @@
+
 var React = require('react');
-var Nav = require('Nav');
+var Nav = require('Nav');   // Nav is another component
+
 
 var Main = React.createClass({
   render: function () {
     return (
       <div>
-        <Nav/>
+        <Nav />
         <h2>Main Component</h2>
         {this.props.children}
       </div>
