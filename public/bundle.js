@@ -28229,7 +28229,26 @@ var WeatherMessage = __webpack_require__(251);
 var Weather = React.createClass({
   displayName: 'Weather',
 
+  getInitialState: function getInitialState() {
+    return {
+      location: 'Sydney',
+      temp: 88
+    };
+  },
+  handleSearch: function handleSearch(updatelocation) {
+    // alert (updatelocation);
+    this.setState({
+      location: updatelocation,
+      temp: 23
+    });
+  },
   render: function render() {
+    // destructing ES6
+    var _state = this.state,
+        temp = _state.temp,
+        location = _state.location;
+
+    console.log(location);
     return React.createElement(
       'div',
       null,
@@ -28238,8 +28257,8 @@ var Weather = React.createClass({
         null,
         'Weather component'
       ),
-      React.createElement(WeatherForm, null),
-      React.createElement(WeatherMessage, null)
+      React.createElement(WeatherForm, { onSearch: this.handleSearch }),
+      React.createElement(WeatherMessage, { temp: temp, location: location })
     );
   }
 });
@@ -28256,20 +28275,29 @@ module.exports = Weather;
 var React = __webpack_require__(4);
 
 var WeatherForm = React.createClass({
-  displayName: "WeatherForm",
+  displayName: 'WeatherForm',
 
+  onFormSubmit: function onFormSubmit(e) {
+    e.preventDefault();
+
+    var location = this.refs.location.value;
+    if (location.length > 0) {
+      this.refs.location.value = '';
+      this.props.onSearch(location); //onSearch is parent function inside weather.jsx
+    }
+  },
   render: function render() {
     return React.createElement(
-      "div",
+      'div',
       null,
       React.createElement(
-        "form",
-        null,
-        React.createElement("input", { type: "text" }),
+        'form',
+        { onSubmit: this.onFormSubmit },
+        React.createElement('input', { type: 'text', ref: 'location' }),
         React.createElement(
-          "button",
+          'button',
           null,
-          "Get Weather"
+          'Get Weather'
         )
       )
     );
@@ -28290,11 +28318,19 @@ var React = __webpack_require__(4);
 var WeatherMessage = React.createClass({
   displayName: 'WeatherMessage',
 
+
   render: function render() {
+    var _props = this.props,
+        temp = _props.temp,
+        location = _props.location; // this.props.temp and this.props.location
+
     return React.createElement(
       'h3',
       null,
-      'It\'s it 40 in Sydney'
+      'It\'s it ',
+      temp,
+      ' in ',
+      location
     );
   }
 });
