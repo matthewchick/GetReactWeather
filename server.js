@@ -15,15 +15,28 @@
 11. add the dynamic loading text
 12. Use react debugging tools in chrome and add inline-source-map inside webpack.config.js - use debugger
 13. learn stateless functional components
+14. Deploy it to Heroku - toolbelt.heroku.com <= Heroku
+    heroku login
+    heroku auth:whoami
+    tell heroku how to start your app - modify the package.json file
 */
 
 var express = require('express');
 
 // Create our app
 var app = express();
+const PORT = process.env.PORT;  //deploy to heroku
+
+app.use(function (req, res, next) {  //middleware
+  if (req.headers['x-forwarded-proto'] === 'http') {
+    next();
+  } else {
+    res.redirect('http://' + req.hostname + req.url);
+  }
+});
 
 app.use(express.static('public'));
 
-app.listen(3000, function () {
-  console.log('Express server is up on port 3000');
+app.listen(PORT, function () {
+  console.log('Express server is up on port ' + PORT);
 });
