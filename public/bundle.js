@@ -28911,20 +28911,27 @@ var Weather = React.createClass({
 
   getInitialState: function getInitialState() {
     return {
+      isLoading: false
+      /*
       location: 'Sydney',
       temp: 88
+      */
     };
   },
   handleSearch: function handleSearch(updatelocation) {
 
     var that = this;
     // alert (updatelocation);
+    this.setState({ isLoading: true });
+
     openWeatherMap.getTemp(updatelocation).then(function (temp) {
       that.setState({ //use this => TypeError: Cannot read property 'setState' of undefined, use that instead of this
         location: updatelocation,
-        temp: temp
+        temp: temp,
+        isLoading: false
       });
     }, function (errorMessage) {
+      that.setState({ isLoading: false });
       alert(errorMessage);
     });
     /*
@@ -28937,11 +28944,26 @@ var Weather = React.createClass({
   render: function render() {
     // destructing ES6
     var _state = this.state,
+        isLoading = _state.isLoading,
         temp = _state.temp,
         location = _state.location;
+    // console.log(location);
+    // console.log(temp);
 
-    console.log(location);
-    console.log(temp);
+    function renderMessage() {
+      if (isLoading) {
+        //if isLoading is true
+        return React.createElement(
+          'h3',
+          null,
+          'Fetching weather...'
+        );
+      } else if (temp && location) {
+        //check temp && location exist
+        return React.createElement(WeatherMessage, { temp: temp, location: location });
+      }
+    }
+
     return React.createElement(
       'div',
       null,
@@ -28951,7 +28973,7 @@ var Weather = React.createClass({
         'Weather component'
       ),
       React.createElement(WeatherForm, { onSearch: this.handleSearch }),
-      React.createElement(WeatherMessage, { temp: temp, location: location })
+      renderMessage()
     );
   }
 });
@@ -29053,10 +29075,14 @@ module.exports = {
       if (res.data.cod && res.data.message) {
         throw new Error(res.data.message);
       } else {
-        return res.data.main.temp;
+        if (res.data.name.toLowerCase() === location.toLowerCase()) {
+          return res.data.main.temp;
+        } else {
+          throw new Error('City not found');
+        }
       }
-    }, function (res) {
-      throw new Error(res.data.message);
+    }, function (err) {
+      throw new Error(err.response.data.message);
     });
   }
 };

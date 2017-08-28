@@ -12,7 +12,7 @@
  8. Use ES6 - promises
  9. how to pass the function from Weather to WeatherForm and back to Weather, next to WeatherMessage
 10. install axios => npm install axios --save => Promise based HTTP client for the browser and node.js
-11.
+11. add the loading text
 */
 
 var express = require('express');

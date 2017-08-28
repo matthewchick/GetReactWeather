@@ -14,10 +14,14 @@ module.exports = {
       if (res.data.cod && res.data.message){
         throw new Error(res.data.message);
       } else {
-        return res.data.main.temp;
+        if (res.data.name.toLowerCase() === location.toLowerCase()) {
+          return res.data.main.temp;
+        } else {
+          throw new Error('City not found');
+        }
       }
-    }, function (res) {
-      throw new Error (res.data.message);
+    }, function (err) {
+      throw new Error (err.response.data.message);
     });
   }
 }
