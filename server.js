@@ -14,6 +14,7 @@
 10. install axios => npm install axios --save => Promise based HTTP client for the browser and node.js
 11. add the dynamic loading text
 12. Use react debugging tools in chrome and add inline-source-map inside webpack.config.js - use debugger
+13. learn stateless functional components
 */
 
 var express = require('express');

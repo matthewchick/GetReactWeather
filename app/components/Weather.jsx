@@ -4,6 +4,7 @@ var WeatherForm = require('WeatherForm');
 var WeatherMessage = require('WeatherMessage');
 var openWeatherMap = require('openWeatherMap');
 
+// Weather is state component
 var Weather = React.createClass({
   getInitialState: function() {
     return {

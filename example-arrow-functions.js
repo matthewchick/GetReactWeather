@@ -11,16 +11,16 @@
 //
 // names.forEach((name) => console.log(name));
 
-// EXAMPLE: Implicit return values
+// EXAMPLE: Implicit return values => call function
 // var returnMe = (name) => name + '!';
 // console.log(returnMe('Andrew'));
 
 
-// EXAMPLE: Unmodified this binding
+// EXAMPLE: Unmodified this binding => object
 // var person = {
 //   name: 'Andrew',
 //   greet: function () {
-//     names.forEach((name) => {
+//     names.forEach((name) => {   //update this using ES6 arrow function
 //       console.log(this.name + ' says hi to ' + name)
 //     });
 //   }
