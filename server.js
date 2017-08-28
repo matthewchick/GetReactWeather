@@ -11,7 +11,8 @@
  7. https://chrome.google.com/webstore/category/extensions => JSONView
  8. Use ES6 - promises
  9. how to pass the function from Weather to WeatherForm and back to Weather, next to WeatherMessage
-10. 
+10. install axios => npm install axios --save => Promise based HTTP client for the browser and node.js
+11.
 */
 
 var express = require('express');
