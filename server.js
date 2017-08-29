@@ -23,7 +23,7 @@
     git remote -v
     git push heroku master
     heroku open
-
+    git remote set-url origin git@github.com:matthewchick/GetReactWeather.git
 */
 
 var express = require('express');
@@ -34,9 +34,9 @@ const PORT = process.env.PORT || 3000;  //deploy to heroku
 
 app.use(function (req, res, next) {  //middleware
   if (req.headers['x-forwarded-proto'] === 'https') {
-    next();
-  } else {
     res.redirect('http://' + req.hostname + req.url);
+  } else {  
+    next();
   }
 });
 
