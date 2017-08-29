@@ -1,10 +1,10 @@
 
 var axios = require('axios');
 
-const weatherAPIKey=process.env.OPEN_WEATHER_MAP_URL || 'b4ad44df233e44f05a4c7f91d7006419';
+const weatherAPIKey=process.env.OPEN_WEATHER_MAP_URL || '87ab0916ec5843a32f0be2ee01f41b6c';
 const OPEN_WEATHER_MAP_URL = `http://api.openweathermap.org/data/2.5/weather?units=imperial&appid=${weatherAPIKey}`;
 
-//const OPEN_WEATHER_MAP_URL = 'http://api.openweathermap.org/data/2.5/weather?units=imperial&appid=b4ad44df233e44f05a4c7f91d7006419';
+//const OPEN_WEATHER_MAP_URL = 'http://api.openweathermap.org/data/2.5/weather?units=imperial&appid=87ab0916ec5843a32f0be2ee01f41b6c';
 module.exports = {
   getTemp: function (location) {
     var encodedLocation = encodeURIComponent(location);

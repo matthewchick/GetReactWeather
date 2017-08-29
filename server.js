@@ -19,16 +19,21 @@
     heroku login
     heroku auth:whoami
     tell heroku how to start your app - modify the package.json file
+    heroku create
+    git remote -v
+    git push heroku master
+    heroku open
+
 */
 
 var express = require('express');
 
 // Create our app
 var app = express();
-const PORT = process.env.PORT;  //deploy to heroku
+const PORT = process.env.PORT || 3000;  //deploy to heroku
 
 app.use(function (req, res, next) {  //middleware
-  if (req.headers['x-forwarded-proto'] === 'http') {
+  if (req.headers['x-forwarded-proto'] === 'https') {
     next();
   } else {
     res.redirect('http://' + req.hostname + req.url);
