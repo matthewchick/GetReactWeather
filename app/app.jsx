@@ -4,6 +4,10 @@ var ReactDOM = require('react-dom');
 // destructing ES6 - we use V2 for react-router
 var {Route, Router, IndexRoute, hashHistory} = require('react-router');
 
+//load foundation
+//require ('style!css!foundation-sites/dist/css/foundation.min.css');
+require ('style-loader!css-loader!foundation-sites/dist/css/foundation.min.css');
+$(document).foundation();
 // var Route = require('react-router').Route;
 // var Router = require ('react-router').Router;
 /*
