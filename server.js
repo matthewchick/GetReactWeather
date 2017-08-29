@@ -25,6 +25,10 @@
     heroku open
     heroku apps:rename matthewchick
     git remote set-url origin git@github.com:matthewchick/GetReactWeather.git
+15. foundation.zurb.com or bootstrap = install foundation
+    sudo npm install css-loader@latest script-loader@latest style-loader@latest jquery@latest foundation-sites@latest
+    --save-exact --save-dev
+
 */
 
 var express = require('express');
