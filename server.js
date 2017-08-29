@@ -23,6 +23,7 @@
     git remote -v
     git push heroku master
     heroku open
+    heroku apps:rename matthewchick
     git remote set-url origin git@github.com:matthewchick/GetReactWeather.git
 */
 
@@ -33,9 +34,16 @@ var app = express();
 const PORT = process.env.PORT || 3000;  //deploy to heroku
 
 app.use(function (req, res, next) {  //middleware
+  /* The x-forwarded-proto header is set by heroku.
+  This lets our application know if the user is on the https
+  or http version of the site. In this case the weather api
+  were using only allows http requests (https are part of the paid plan).
+  The above code redirects https visitor over to the http site
+  so they can use the weather api.
+  */
   if (req.headers['x-forwarded-proto'] === 'https') {
     res.redirect('http://' + req.hostname + req.url);
-  } else {  
+  } else {
     next();
   }
 });
