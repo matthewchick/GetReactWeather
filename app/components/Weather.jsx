@@ -15,16 +15,16 @@ var Weather = React.createClass({
       */
     }
   },
-  handleSearch: function (updatelocation){
+  handleSearch: function (location){   //must use location as global variable as window.location
 
     var that = this;
     // alert (updatelocation);
-    // debugger;
+    debugger;
     this.setState({isLoading: true});
 
-    openWeatherMap.getTemp(updatelocation).then(function (temp){
+    openWeatherMap.getTemp(location).then(function (temp){
       that.setState({           //use this => TypeError: Cannot read property 'setState' of undefined, use that instead of this
-        location: updatelocation,
+        location: location,
         temp: temp,
         isLoading: false
       });
