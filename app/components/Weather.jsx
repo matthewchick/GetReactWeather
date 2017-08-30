@@ -13,25 +13,30 @@ var Weather = React.createClass({
       location: 'Sydney',
       temp: 88
       */
-    }
+    };
   },
-  handleSearch: function (location){   //must use location as global variable as window.location
+  handleSearch: function(location) {
+    //must use location as global variable as window.location
 
     var that = this;
     // alert (updatelocation);
     // debugger;
-    this.setState({isLoading: true});
+    this.setState({ isLoading: true });
 
-    openWeatherMap.getTemp(location).then(function (temp){
-      that.setState({           //use this => TypeError: Cannot read property 'setState' of undefined, use that instead of this
-        location: location,
-        temp: temp,
-        isLoading: false
-      });
-    }, function(errorMessage) {
-      that.setState({isLoading: false});
-      alert(errorMessage);
-    });
+    openWeatherMap.getTemp(location).then(
+      function(temp) {
+        that.setState({
+          //use this => TypeError: Cannot read property 'setState' of undefined, use that instead of this
+          location: location,
+          temp: temp,
+          isLoading: false
+        });
+      },
+      function(errorMessage) {
+        that.setState({ isLoading: false });
+        alert(errorMessage);
+      }
+    );
     /*
     this.setState({
       location: updatelocation,
@@ -41,24 +46,26 @@ var Weather = React.createClass({
   },
   render: function() {
     // destructing ES6
-    var {isLoading, temp, location} = this.state;
+    var { isLoading, temp, location } = this.state;
     // console.log(location);
     // console.log(temp);
     function renderMessage() {
-      if (isLoading) {    //if isLoading is true
-        return <h3>Fetching weather...</h3>
-      } else if (temp && location){      //check temp && location exist
-        return <WeatherMessage temp={temp} location={location}/>
+      if (isLoading) {
+        //if isLoading is true
+        return <h3 className="text-center">Fetching weather...</h3>;
+      } else if (temp && location) {
+        //check temp && location exist
+        return <WeatherMessage temp={temp} location={location} />;
       }
     }
 
     return (
       <div>
-        <h3>Weather component</h3>
-        <WeatherForm onSearch={this.handleSearch}/>
+        <h1 className="text-center">Get Weather</h1>
+        <WeatherForm onSearch={this.handleSearch} />
         {renderMessage()}
       </div>
-    )
+    );
   }
 });
 

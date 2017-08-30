@@ -29,7 +29,9 @@
     sudo npm install css-loader@latest script-loader@latest style-loader@latest jquery@latest foundation-sites@latest
     --save-exact --save-dev
     React use className instead of class
-    
+
+    https://github.com/prettier/prettier
+    https://www.draw.io/
     https://medium.com/@victorleungtw/how-to-use-webpack-with-react-and-bootstrap-b94d33765970
 */
 

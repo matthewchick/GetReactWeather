@@ -1,4 +1,3 @@
-
 var React = require('react');
 
 var WeatherForm = React.createClass({
@@ -8,17 +7,17 @@ var WeatherForm = React.createClass({
     var location = this.refs.location.value;
     if (location.length > 0) {
       this.refs.location.value = '';
-      this.props.onSearch(location);  //onSearch is parent function inside weather.jsx
+      this.props.onSearch(location); //onSearch is parent function inside weather.jsx
     }
   },
-  render: function () {
+  render: function() {
     return (
-        <div>
-          <form onSubmit={this.onFormSubmit}>
-            <input type="text" ref="location"/>
-            <button>Get Weather</button>
-          </form>
-        </div>
+      <div>
+        <form onSubmit={this.onFormSubmit}>
+          <input type="text" ref="location" />
+          <button className="button expanded hollow">Get Weather</button>
+        </form>
+      </div>
     );
   }
 });
