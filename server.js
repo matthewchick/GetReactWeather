@@ -28,7 +28,9 @@
 15. foundation.zurb.com or bootstrap = install foundation
     sudo npm install css-loader@latest script-loader@latest style-loader@latest jquery@latest foundation-sites@latest
     --save-exact --save-dev
-
+    React use className instead of class
+    
+    https://medium.com/@victorleungtw/how-to-use-webpack-with-react-and-bootstrap-b94d33765970
 */
 
 var express = require('express');
