@@ -33,6 +33,8 @@
     https://github.com/prettier/prettier
     https://www.draw.io/
     https://medium.com/@victorleungtw/how-to-use-webpack-with-react-and-bootstrap-b94d33765970
+16. Add custom css
+
 */
 
 var express = require('express');

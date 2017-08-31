@@ -1,23 +1,19 @@
 var React = require('react');
 
-
-
 /* method 2
 React 0.14 introduced functional, stateless components
 as a way to define React components as a function, rather than
 as an ES2015 class or via React.createClass.
 */
-var About = (props) => {
+var About = props => {
   return (
     <div>
-      <h1 className="text-center">About</h1>
+      <h1 className="text-center page-title">About</h1>
       <p>
-        This is a weather application build on React under Node.js. I have built this
-        for The Complete React Web App Developer Course.
+        This is a weather application build on React under Node.js. I have built
+        this for The Complete React Web App Developer Course.
       </p>
-      <p>
-        Here are some of the tools I used:
-      </p>
+      <p>Here are some of the tools I used:</p>
       <ul>
         <li>
           <a href="https://facebook.github.io/react">React</a>
@@ -32,9 +28,9 @@ var About = (props) => {
           - Use Mocha with Expect and Promise for testing.
         </li>
       </ul>
-     </div>
-  )
-}
+    </div>
+  );
+};
 /* method 1
 var About = function (props) {
   return (

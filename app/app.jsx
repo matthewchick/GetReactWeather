@@ -1,13 +1,14 @@
-
 var React = require('react');
 var ReactDOM = require('react-dom');
 // destructing ES6 - we use V2 for react-router
-var {Route, Router, IndexRoute, hashHistory} = require('react-router');
+var { Route, Router, IndexRoute, hashHistory } = require('react-router');
 
 //load foundation
 //require ('style!css!foundation-sites/dist/css/foundation.min.css');
-require ('style-loader!css-loader!foundation-sites/dist/css/foundation.min.css');
-require ('style-loader!css-loader!foundation-sites/dist/css/foundation-float.min.css');
+require('style-loader!css-loader!foundation-sites/dist/css/foundation.min.css');
+require('style-loader!css-loader!foundation-sites/dist/css/foundation-float.min.css');
+// App css
+require('style-loader!css-loader!applicationStyles');
 
 $(document).foundation();
 // var Route = require('react-router').Route;
@@ -32,9 +33,9 @@ ReactDOM.render(
   */
   <Router history={hashHistory}>
     <Route path="/" component={Main}>
-      <Route path="about" component={About}/>
-      <Route path="examples" component={Examples}/>
-      <IndexRoute component={Weather}/>
+      <Route path="about" component={About} />
+      <Route path="examples" component={Examples} />
+      <IndexRoute component={Weather} />
     </Route>
   </Router>,
   document.getElementById('app')
