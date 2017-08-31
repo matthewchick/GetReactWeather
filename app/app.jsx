@@ -7,9 +7,11 @@ var { Route, Router, IndexRoute, hashHistory } = require('react-router');
 //require ('style!css!foundation-sites/dist/css/foundation.min.css');
 require('style-loader!css-loader!foundation-sites/dist/css/foundation.min.css');
 require('style-loader!css-loader!foundation-sites/dist/css/foundation-float.min.css');
-// App css
+/* App css
 require('style-loader!css-loader!applicationStyles');
-
+*/
+// App scss
+require('style-loader!css-loader!sass-loader!applicationStyles');
 $(document).foundation();
 // var Route = require('react-router').Route;
 // var Router = require ('react-router').Router;
