@@ -34,7 +34,8 @@
     https://www.draw.io/
     https://medium.com/@victorleungtw/how-to-use-webpack-with-react-and-bootstrap-b94d33765970
 16. Add custom css
-
+17. set up scss - preprocessor => sass-lang.com
+    sudo npm i sass-loader@latest node-sass@latest --save-dev
 */
 
 var express = require('express');
