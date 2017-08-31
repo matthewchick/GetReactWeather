@@ -24,7 +24,9 @@ var Weather = React.createClass({
     // debugger;
     this.setState({
       isLoading: true,
-      errorMessage: undefined
+      errorMessage: undefined,
+      location: undefined,
+      temp: undefined
     });
 
     openWeatherMap.getTemp(location).then(
@@ -51,6 +53,34 @@ var Weather = React.createClass({
     });
     */
   },
+
+  componentDidMount: function() {
+    // from examples.jsx
+    // https://facebook.github.io/react/docs/react-component.html
+    // This is provided to you by react-router! It give you access to awesome location
+    // based data like the url, query string values, etc.
+    var location = this.props.location.query.location;
+    // https://medium.freecodecamp.org/beginner-s-guide-to-react-router-53094349669
+    console.log('location', location);
+    if (location && location.length > 0) {
+      this.handleSearch(location);
+      //window.location.hash = '#/'; //make it refresh
+    }
+  },
+
+  componentWillReceiveProps: function(newProp) {
+    // Search from nav
+    // An update can be caused by changes to props or state.
+    // These methods are called when a component is being re-rendered
+    var location = newProp.location.query.location;
+    // https://medium.freecodecamp.org/beginner-s-guide-to-react-router-53094349669
+    console.log('newlocation', location);
+    if (location && location.length > 0) {
+      this.handleSearch(location);
+      //window.location.hash = '#/';
+    }
+  },
+
   render: function() {
     // destructing ES6
     var { isLoading, temp, location, errorMessage } = this.state;

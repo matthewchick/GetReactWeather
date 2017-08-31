@@ -10,8 +10,8 @@ var About = props => {
     <div>
       <h1 className="text-center page-title">About</h1>
       <p>
-        This is a weather application build on React under Node.js. I have built
-        this for The Complete React Web App Developer Course.
+        This is a weather application build on React under Node.js and Express.
+        I have built this for The Complete React Web App Developer Course.
       </p>
       <p>Here are some of the tools I used:</p>
       <ul>
@@ -25,7 +25,11 @@ var About = props => {
         </li>
         <li>
           <a href="https://github.com/mochajs/mocha">Mocha</a>
-          - Use Mocha with Expect and Promise for testing.
+          - Use Mocha with Expect, Spies and Promise for testing.
+        </li>
+        <li>
+          <a href="http://sass-lang.com/guide">SASS</a>
+          - Use SASS/SCSS instead of CSS.
         </li>
       </ul>
     </div>
