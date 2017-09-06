@@ -1,0 +1,28 @@
+/*
+We'll be using webpack to compile SCSS down to CSS, so we'll be
+building out our uncompiled styles in the app folder.
+*/
+
+/* variable */
+$space-large: 2.5rem;
+$title-color: purple;
+
+.page-title {
+  color: $title-color;
+  margin-top: $space-large;
+  margin-bottom: $space-large;
+}
+
+input[type='search'] {
+  box-shadow: none;
+}
+/* rename .css to .scss
+.page-title {
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+
+input[type='search'] {
+  box-shadow: none;
+}
+*/
